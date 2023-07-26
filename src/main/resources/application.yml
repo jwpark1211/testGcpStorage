@@ -1,0 +1,36 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?user=root
+    username: root
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    open-in-view: false
+    show_sql: true
+    hibernate:
+      format_sql: true
+      ddl-auto: create
+  cloud:
+    gcp:
+      storage:
+        credentials:
+          location: classpath:novo-test-392611-.json
+        project-id: novo-test-39
+        bucket: novo-bucket1
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+server:
+  port: 8080
